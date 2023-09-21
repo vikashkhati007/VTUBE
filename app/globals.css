@@ -2,12 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-body{
-  background-color: #0F0F0F;
+body {
+  background-color: #0f0f0f;
+}
+
+.logo {
+  background: #cf0e0e;
+  background: linear-gradient(
+    to right,
+    #cf0e0e 0%,
+    #ff4621 25%,
+    #ff4719 75%,
+    #cf0000 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
