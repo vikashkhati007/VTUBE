@@ -1,10 +1,10 @@
-import Image from "next/image";
-import YoutubeLogo from "./svg/youtubelogo";
 import Input from "./input";
 import CreateICON from "./svg/create";
 import NotificationIcon from "./svg/notification";
 import HeadItemsScroll from "./headitemsscroll";
 import Link from "next/link";
+import { GoPerson } from "react-icons/go";
+import Hover from "../groupcomponents/hover";
 
 const ClientNavbar = () => {
   return (
@@ -13,24 +13,27 @@ const ClientNavbar = () => {
         <div className="w-[6rem]">
           <h1 className="font-bold text-white text-3xl">
             <Link href={"/"}>
-            <span className="logo">V</span>TUBE
+              <span className="logo">V</span>TUBE
             </Link>
           </h1>
         </div>
         <div>
           <Input />
         </div>
-        <div className="itemscontainer flex flex-row space-x-3">
-          <div className="w-11 p-2 cursor-pointer hover:bg-white hover:bg-opacity-10 rounded-full">
+        <div className="itemscontainer flex flex-row justify-center items-center space-x-3">
+          <div className="group flex flex-col justify-center items-center  w-11 p-2 cursor-pointer hover:bg-white hover:bg-opacity-10 rounded-full">
             <CreateICON />
+            <Hover text={"Create"} />
           </div>
-          <div className="w-11 p-2 cursor-pointer hover:bg-white hover:bg-opacity-10 rounded-full">
+          <div className="group flex flex-col justify-center items-center w-11 p-2 cursor-pointer hover:bg-white hover:bg-opacity-10 rounded-full">
             <NotificationIcon />
+            <Hover text={"Notification"} />
           </div>
           <Link href={"/signin"}>
-          <div className="w-20 font-bold bg-gradient-to-tr hover:border hover:border-opacity-50 hover:border-white h-10 m-auto from-[#C70039] to-[#dd3222] flex justify-center items-center cursor-pointer rounded-full">
-            <button className="text-white"> Sign-In</button>
-          </div>
+            <div className="group flex flex-col justify-center items-center w-11 p-2 h-11 cursor-pointer text-3xl hover:border hover:border-opacity-10 hover:border-white bg-white bg-opacity-10 rounded-full">
+              <GoPerson className="text-white" />
+              <Hover text={"Profile"} />
+            </div>
           </Link>
         </div>
       </div>
