@@ -1,5 +1,6 @@
 import { GoSearch } from "react-icons/go";
 import { MdKeyboardVoice } from "react-icons/md";
+import Hover from "../groupcomponents/hover";
 const Input = () => {
   return (
     <div className="flex justify-center items-center space-x-5 w-[37rem]">
@@ -14,8 +15,9 @@ const Input = () => {
           <GoSearch className="text-white text-xl" />
         </div>
       </div>
-      <div className="cursor-pointer bg-white bg-opacity-10 rounded-full p-2">
+      <div className="group flex flex-col justify-center items-center cursor-pointer bg-white bg-opacity-10 rounded-full p-2">
         <MdKeyboardVoice className="text-white text-2xl" />
+        <Hover text={"Microphone"} />
       </div>
     </div>
   );

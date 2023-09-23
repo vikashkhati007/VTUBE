@@ -1,7 +1,7 @@
 import Input from "./input";
 import CreateICON from "./svg/create";
 import NotificationIcon from "./svg/notification";
-import HeadItemsScroll from "./headitemsscroll";
+import HomeVideoContainer from "../HomeVideoContainer";
 import Link from "next/link";
 import { GoPerson } from "react-icons/go";
 import Hover from "../groupcomponents/hover";
@@ -38,7 +38,7 @@ const ClientNavbar = () => {
         </div>
       </div>
       <div className="text-white w-full p-2">
-        <HeadItemsScroll />
+        <HomeVideoContainer />
       </div>
     </div>
   );

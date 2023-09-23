@@ -13,31 +13,31 @@ const NavbarItems = () => {
         <div className="homesvgcontainer group w-15 flex flex-col items-center p-2 rounded-md cursor-pointer hover:bg-white hover:bg-opacity-10">
           <div className="homesvg w-7 flex flex-col justify-center items-center ">
             <ItemsMenuSVG />
-            <Hover text={"Menu"}/>
+            <Hover text={"Menu"} />
           </div>
         </div>
-        <div className="homesvgcontainer w-15 flex flex-col items-center p-2 cursor-pointer hover:bg-white hover:bg-opacity-10 rounded-md">
-          <div className="homesvg w-7 group flex flex-col justify-center items-center">
+        <div className="homesvgcontainer group w-15 flex flex-col items-center p-2 cursor-pointer hover:bg-white hover:bg-opacity-10 rounded-md">
+          <div className="homesvg w-7 flex flex-col justify-center items-center">
             <HomeIconSVG />
-            <Hover text={"Home"}/>
+            <Hover text={"Home"} />
           </div>
         </div>
         <div className="homesvgcontainer group w-15 flex flex-col items-center p-2 cursor-pointer hover:bg-white hover:bg-opacity-10 rounded-md">
           <div className="homesvg w-7 flex flex-col justify-center items-center">
             <ShortsIconSVG />
-            <Hover text={"Shorts"}/>
+            <Hover text={"Shorts"} />
           </div>
         </div>
         <div className="homesvgcontainer group w-15 flex flex-col items-center p-2 cursor-pointer hover:bg-white hover:bg-opacity-10 rounded-md">
           <div className="homesvg w-7 flex flex-col justify-center items-center">
             <SubscriptionIcon />
-            <Hover text={"Subscription"}/>
+            <Hover text={"Subscription"} />
           </div>
         </div>
         <div className="homesvgcontainer group w-15 flex flex-col items-center p-2 cursor-pointer hover:bg-white hover:bg-opacity-10 rounded-md">
           <div className="homesvg w-7 flex flex-col justify-center items-center">
             <LibraryIconSVG />
-            <Hover text={"Library"}/>
+            <Hover text={"Library"} />
           </div>
         </div>
       </div>
