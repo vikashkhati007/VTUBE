@@ -7,7 +7,7 @@ interface PropsType{
 }
 const Shorts = ({thumbnail, title, shortsviews}: PropsType) => {
   return (
-    <div className="text-white w-[210px]">
+    <div className="text-white w-[210px] my-5">
       <Image src={`${thumbnail}`}
       width={210}
       height={150}

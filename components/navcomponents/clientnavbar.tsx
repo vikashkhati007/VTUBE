@@ -8,8 +8,8 @@ import Hover from "../groupcomponents/hover";
 
 const ClientNavbar = () => {
   return (
-    <div className="flex flex-col ">
-      <div className="clientcontainer flex flex-row justify-around items-center w-full h-16 bg-[#0F0F0F] border-b border-white border-opacity-10">
+    <>
+      <div className="clientcontainer flex flex-row justify-around items-center h-16 bg-[#0F0F0F] border-b border-white border-opacity-10 w-full md:w-[95%]  fixed top-0 right-0 ">
         <div className="w-[6rem]">
           <h1 className="font-bold text-white text-3xl">
             <Link href={"/"}>
@@ -37,7 +37,7 @@ const ClientNavbar = () => {
           </Link>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

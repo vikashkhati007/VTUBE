@@ -9,8 +9,10 @@ const Navbar = () => {
         <NavbarItems />
         <div className="container w-full h-screen ">
           <ClientNavbar />
+          <div className="bodycontainer md:ml-[4rem] md:mt-[5rem] ">
           <HomeVideoContainer />
           <ShortsVideoContainer />
+          </div>
         </div>
       </div>
     </div>
