@@ -18,7 +18,7 @@ const page = () => {
           ></input>
         </div>
         <div className="buttoncontainer w-full flex justify-center items-center h-[3rem]">
-          <button className="bg-gradient-to-tr from-green-700 to-green-500 p-2 px-5 rounded-full font-bold hover:bg-none hover:border hover:border-green-400">
+          <button className="bg-gradient-to-tr from-red-700 to-red-500 p-2 px-5 rounded-full font-bold hover:bg-none hover:border hover:border-red-400">
             Login
           </button>
         </div>

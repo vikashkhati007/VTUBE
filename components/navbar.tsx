@@ -11,7 +11,6 @@ const Navbar = () => {
           <ClientNavbar />
           <HomeVideoContainer />
           <ShortsVideoContainer />
-          <HomeVideoContainer />
         </div>
       </div>
     </div>
