@@ -8,7 +8,7 @@ import Hover from "../groupcomponents/hover";
 
 const ClientNavbar = () => {
   return (
-    <div className="flex w-[94vw] flex-col h-screen absolute right-0 top-0">
+    <div className="flex flex-col ">
       <div className="clientcontainer flex flex-row justify-around items-center w-full h-16 bg-[#0F0F0F] border-b border-white border-opacity-10">
         <div className="w-[6rem]">
           <h1 className="font-bold text-white text-3xl">
@@ -36,9 +36,6 @@ const ClientNavbar = () => {
             </div>
           </Link>
         </div>
-      </div>
-      <div className="text-white w-full p-2">
-        <HomeVideoContainer />
       </div>
     </div>
   );
