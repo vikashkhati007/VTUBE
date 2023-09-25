@@ -39,13 +39,6 @@ const ShortsVideoContainer = () => {
           title={"Addicted to The Dance Reel of sanha and moonbin.."}
           shortsviews={"377K"}
         />
-         <Shorts
-          thumbnail={
-            "https://i.ytimg.com/vi/806fX9saSu4/hq720.jpg?sqp=-oaymwEqCJUDENAFSFryq4qpAxwIARUAAIhC0AEB2AEB4gEMCBoQAhgGIAE4AUAB&rs=AOn4CLB0gLClPEkI4f2-AvSmBpSwbwK28w"
-          }
-          title={"Addicted to The Dance Reel of sanha and moonbin.."}
-          shortsviews={"377K"}
-        />
          
       </div>
     </div>

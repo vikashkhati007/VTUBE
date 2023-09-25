@@ -1,5 +1,6 @@
 import Video from "./Video";
 import data from "../youtube/HomeData.json";
+import Link from "next/link";
 
 const HomeVideoContainer = () => {
   return (
@@ -22,8 +23,9 @@ const HomeVideoContainer = () => {
   }
 
   return (
+    <>
+    <Link key={d.video.videoId} href={`/watch?video=${d.video.videoId}`}>
     <Video
-      key={index}
       thumbnail={`${d.video.thumbnails[1]?.url}`}
       videotitle={`${d.video.title.slice(0, 29) + "..."}`}
       channelavtar={`${d.video.author.avatar[0]?.url}`}
@@ -31,6 +33,8 @@ const HomeVideoContainer = () => {
       videoviews={formattedViews} // Use the formatted views prop
       videouploaddate={`${d.video.publishedTimeText}`}
     />
+    </Link>
+    </>
   );
 })}
 
