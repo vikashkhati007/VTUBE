@@ -39,3 +39,15 @@ body {
 .boldfontstyle{
   font-family: 'Inclusive Sans', sans-serif;
 }
+
+/* Description.css */
+.expanded {
+  max-height: 1000px; /* Set a maximum height to allow expansion */
+  transition: max-height 0.5s ease-in-out; /* Add a smooth transition effect */
+}
+
+.collapsed {
+  max-height: 200px; /* Set the collapsed height */
+  overflow: hidden; /* Hide overflow content */
+  transition: max-height 0.5s ease-in-out; /* Add a smooth transition effect */
+}

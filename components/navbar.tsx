@@ -8,7 +8,7 @@ const Navbar = () => {
       <div className="container flex flex-row w-full">
         <NavbarItems />
         <div className="container w-full h-screen ">
-          <ClientNavbar />
+          <ClientNavbar width={""} />
           <div className="bodycontainer md:ml-[4rem] md:mt-[5rem] ">
           <HomeVideoContainer />
           <ShortsVideoContainer />
