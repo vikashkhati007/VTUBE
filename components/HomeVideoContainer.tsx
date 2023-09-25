@@ -24,7 +24,7 @@ const HomeVideoContainer = () => {
 
   return (
     <>
-    <Link key={d.video.videoId} href={`/watch?video=${d.video.videoId}`}>
+    <Link key={d.video.videoId} href={`/watch/${d.video.videoId}`}>
     <Video
       thumbnail={`${d.video.thumbnails[1]?.url}`}
       videotitle={`${d.video.title.slice(0, 29) + "..."}`}

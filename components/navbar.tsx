@@ -1,5 +1,4 @@
 import HomeVideoContainer from "./HomeVideoContainer";
-import ShortsVideoContainer from "./ShortsVideoContainer";
 import ClientNavbar from "./navcomponents/clientnavbar";
 import NavbarItems from "./navcomponents/navbaritems";
 const Navbar = () => {
@@ -11,7 +10,6 @@ const Navbar = () => {
           <ClientNavbar width={""} />
           <div className="bodycontainer md:ml-[4rem] md:mt-[5rem] ">
           <HomeVideoContainer />
-          <ShortsVideoContainer />
           </div>
         </div>
       </div>
