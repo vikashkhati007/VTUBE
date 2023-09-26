@@ -1,9 +1,20 @@
+import VideoResult from "./ResultVideo";
+import Link from "next/link";
 const SearchVideoContainer = () => {
   return (
-    <div className="w-full bg-red-500  justify-center items-center"> 
-    <h1>Hello</h1>
+    <>
+    <div className="searchvidecontainer space-y-5">
+    <VideoResult/>
+    <VideoResult/>
+    <VideoResult/>
+    <VideoResult/>
+    <VideoResult/>
+    <VideoResult/>
+    <VideoResult/>
     </div>
-  )
-}
+   
+    </>
+  );
+};
 
-export default SearchVideoContainer
+export default SearchVideoContainer;
