@@ -3,17 +3,22 @@ import CreateICON from "./svg/create";
 import NotificationIcon from "./svg/notification";
 import HomeVideoContainer from "../HomeVideoContainer";
 import Link from "next/link";
-import { GoPerson } from "react-icons/go";
 import Hover from "../groupcomponents/hover";
+import UserAuthenticate from "../userauthenticate/User";
 
-interface PropsType{
-  width: String
+interface PropsType {
+  width: String;
 }
 
-const ClientNavbar = ({width}:PropsType) => {
+const ClientNavbar = ({ width }: PropsType) => {
+
   return (
     <>
-      <div className={`clientcontainer flex flex-row justify-around items-center h-16 bg-[#0F0F0F] border-b border-white border-opacity-10 w-full ${width? width: 'md:w-[95%]'} fixed top-0 right-0`}>
+      <div
+        className={`clientcontainer flex flex-row justify-around items-center h-16 bg-[#0F0F0F] border-b border-white border-opacity-10 w-full ${
+          width ? width : "md:w-[95%]"
+        } fixed top-0 right-0`}
+      >
         <div className="w-[6rem]">
           <h1 className="font-bold text-white text-3xl">
             <Link href={"/"}>
@@ -33,12 +38,7 @@ const ClientNavbar = ({width}:PropsType) => {
             <NotificationIcon />
             <Hover text={"Notification"} />
           </div>
-          <Link href={"/signin"}>
-            <div className="group flex flex-col justify-center items-center w-11 p-2 h-11 cursor-pointer text-3xl hover:border hover:border-opacity-10 hover:border-white bg-white bg-opacity-10 rounded-full">
-              <GoPerson className="text-white" />
-              <Hover text={"Profile"} />
-            </div>
-          </Link>
+           <UserAuthenticate/>
         </div>
       </div>
     </>
