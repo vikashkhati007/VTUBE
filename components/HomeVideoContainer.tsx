@@ -1,13 +1,19 @@
+"use client"
 import Video from "./Video";
-import data from "../youtube/HomeData.json";
 import Link from "next/link";
+import youtube from "../youtubedata/gethomedata";
+import { useState } from "react";
+import UserProfileData from "@/youtubedata/userprofiledata";
 
-const HomeVideoContainer = () => {
+const HomeVideoContainer = async () => {
+  const youtubehomedata = await youtube();
+
   return (
     <div className="videocontainer flex flex-wrap items-center justify-around text-white border-b-2 border-white border-opacity-20 ">
-    {data.map((d, index) => {
+    {youtubehomedata.items.map( async (d:any, index:any) => {
+      const data = await UserProfileData(d.snippet.channelId);
   // Safely parse the views count
-  const views = parseInt(String(d.video.stats?.views || '0'), 10);
+  const views = parseInt(String(d.snippet.categoryId || '0'), 10);
 
   // Format the videoviews prop with abbreviations
   let formattedViews;
@@ -24,14 +30,14 @@ const HomeVideoContainer = () => {
 
   return (
     <>
-    <Link key={d.video.videoId} href={`/watch/${d.video.videoId}`}>
+    <Link key={d.id} href={`/watch/${d.id}`}>
     <Video
-      thumbnail={`${d.video.thumbnails[1]?.url}`}
-      videotitle={`${d.video.title.slice(0, 29) + "..."}`}
-      channelavtar={`${d.video.author.avatar[0]?.url}`}
-      channelname={`${d.video.author.title}`}
-      videoviews={formattedViews} // Use the formatted views prop
-      videouploaddate={`${d.video.publishedTimeText}`}
+      thumbnail={`${d.snippet.thumbnails.standard.url}`}
+      videotitle={`${d.snippet.title.slice(0, 29) + "..."}`}
+      channelavtar={`${""}`}
+      channelname={`${""}`}
+      videoviews={formattedViews || ""} // Use the formatted views prop
+      videouploaddate={`${d.snippet.publishedAt}`}
     />
     </Link>
     </>
