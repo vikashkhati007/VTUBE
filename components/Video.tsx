@@ -7,6 +7,7 @@ const Video = async ({
   videotitle,
   videoviews,
   videouploaddate,
+  channelname
 }: any)  => {
   // const data = await GetChannelTest(channelID);
   return (
@@ -32,7 +33,7 @@ const Video = async ({
           <p className="text-[14.2px] text-left ">{videotitle}</p>
           <div className="channelinformation text-white text-opacity-70 flex flex-col">
             <div className="channelnamebadge flex space-x-1">
-              <h4 className="text-xs cursor-pointer text-left">{""} </h4>
+              <h4 className="text-xs cursor-pointer text-left">{channelname} </h4>
               <p className="w-[14px] h-[14px]">
               <VerifiedIcon />
               </p>

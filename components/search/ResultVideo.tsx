@@ -13,7 +13,7 @@ const VideoResult = async ({
   
   return (
     <>
-      <div className="flex w-full justify-center rounded-md gap-3 cursor-pointer text-white ">
+      <div className="flex w-full justify-center rounded-md gap-5 cursor-pointer text-white ">
         <div className="imagecontainer ">
           <Image
             className="rounded-md"

@@ -1,13 +1,12 @@
 import Video from "./Video";
 import Link from "next/link";
-import youtube from "../youtubedata/gethomedata";
-
+import fetchMostPopularVideos from "@/youtubedata/gethomedata";
 const HomeVideoContainer = async () => {
-  const youtubehomedata = await youtube();
+  const youtubehomedata = await fetchMostPopularVideos();
 
   return (
     <div className="videocontainer flex flex-wrap items-center justify-around text-white border-b-2 border-white border-opacity-20 ">
-      {youtubehomedata.items.map(async (d: any, index: any) => {
+      {youtubehomedata.map(async (d: any, index: any) => {
           // Safely parse the views count
           const views = parseInt(String(d.snippet.categoryId || "0"), 10);
           console.log();
@@ -28,7 +27,7 @@ const HomeVideoContainer = async () => {
             <>
               <Link key={d.id} href={`/watch/${d.id}`}>
                 <Video
-                  thumbnail={`${d.snippet.thumbnails.standard.url}`}
+                  thumbnail={d.snippet.thumbnails.high.url}
                   videotitle={`${d.snippet.title.slice(0, 29) + "..."}`}
                   channelID={d.snippet.channelId}
                   videoviews={formattedViews || ""} // Use the formatted views prop
