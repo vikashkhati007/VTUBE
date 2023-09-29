@@ -8,7 +8,6 @@ const Video = async ({
   videoviews,
   videouploaddate,
 }: any)  => {
-  console.log(channelID);
   // const data = await GetChannelTest(channelID);
   return (
     <div className="videocontainer w-[380px] flex flex-col justify-center items-center my-4 gap-2 cursor-pointer">

@@ -2,9 +2,6 @@ import React from "react";
 import Image from "next/image";
 import {
   AiOutlineLike,
-  AiOutlineDislike,
-  AiOutlinePlus,
-  AiOutlineCheck,
 } from "react-icons/ai";
 import { TbShare3 } from "react-icons/tb";
 import { LiaDownloadSolid } from "react-icons/lia";
@@ -22,6 +19,19 @@ const YoutubeWatchVideoContainer = async ({ videoID }: any) => {
   );
   const videocomment = await GetVideoComments(videoID);
 
+  function numberToShortString(number: number): string {
+    const suffixes: string[] = ["", "K", "M", "B", "T"];
+  
+    const suffixNum: number = Math.floor(("" + number).length / 3);
+    let shortValue: number | string = parseFloat((suffixNum !== 0 ? (number / Math.pow(1000, suffixNum)) : number).toPrecision(2));
+    if (typeof shortValue === 'number' && shortValue % 1 !== 0) {
+      shortValue = shortValue.toFixed(1);
+    }
+    return shortValue + suffixes[suffixNum];
+  }
+  
+ 
+  
   //working on videodeatils
   const srcRegex = /src=["'](.*?)["']/;
   const match = videodata.items[0].player.embedHtml.match(srcRegex);
@@ -29,9 +39,12 @@ const YoutubeWatchVideoContainer = async ({ videoID }: any) => {
 
   const channelTitle = channelData.items[0].snippet.title;
   const channelAvatarUrl = channelData.items[0].snippet.thumbnails.high.url;
-  const subscriberCount = channelData.items[0].statistics.subscriberCount;
-  const viewCount = channelData.items[0].statistics.viewCount;
-
+  const subscriberCount = numberToShortString(channelData.items[0].statistics.subscriberCount);
+  const viewCount = numberToShortString(channelData.items[0].statistics.viewCount);
+  const likeCount = numberToShortString(videodetails.items[0].statistics.likeCount);
+  const description = videodetails.items[0].snippet.description;
+  const title = videodetails.items[0].snippet.title;
+  
   return (
     <>
       <div className="videocontainer flex w-[60%] flex-col gap-2 p-2 border border-white border-opacity-10 rounded-md ">
@@ -47,8 +60,7 @@ const YoutubeWatchVideoContainer = async ({ videoID }: any) => {
         <div className="descriptioncontainer ">
           <div className="w-full p-2">
             <h1 className="font-bold text-lg">
-              {" "}
-              {videodetails.items[0].snippet.title}
+              {title}
             </h1>
           </div>
           <div className="channelusercontainer w-full flex p-2 mb-3 items-center">
@@ -56,7 +68,7 @@ const YoutubeWatchVideoContainer = async ({ videoID }: any) => {
               <div className="imagecontainer w-11 h-11">
                 <Image
                   className="rounded-full"
-                  src={`${channelAvatarUrl}`}
+                  src={channelAvatarUrl}
                   width={50}
                   height={40}
                   alt="avatar"
@@ -73,9 +85,8 @@ const YoutubeWatchVideoContainer = async ({ videoID }: any) => {
               <div className="likedislikecontainer w-36 flex justify-around gap-3 cursor-pointer bg-white bg-opacity-10 border border-white border-opacity-40 rounded-full items-center font-semibold">
                 <div className="flex justify-center items-center gap-1">
                   <AiOutlineLike className={"text-2xl"} />
-                  <p></p>
+                  <p>{likeCount}</p>
                 </div>
-                <AiOutlineDislike className={"text-2xl"} />
               </div>
               <div className="sharecontainer flex justify-center cursor-pointer items-center gap-2 border border-white border-opacity-30 rounded-full bg-white bg-opacity-10 p-2 px-3 font-semibold">
                 <TbShare3 className={"text-2xl"} />
@@ -88,7 +99,7 @@ const YoutubeWatchVideoContainer = async ({ videoID }: any) => {
             </div>
           </div>
           <Description
-            text={videodetails.items[0].snippet.description}
+            text={description}
             viewCount={viewCount}
             comments={videocomment}
           />
