@@ -11,17 +11,26 @@ import { LiaDownloadSolid } from "react-icons/lia";
 import Description from "./description";
 import GetVideoURL from "@/youtubedata/getvideoUrl";
 import GetVideoDetails from "@/youtubedata/getvideoDetails";
-
+import GetChannelDetails from "@/youtubedata/getchanneldetails";
+import GetVideoComments from "@/youtubedata/getvideocomments";
 
 const YoutubeWatchVideoContainer = async ({ videoID }: any) => {
+
   const videodata = await GetVideoURL(videoID);
   const videodetails = await GetVideoDetails(videoID);
+  const channelData = await GetChannelDetails(videodetails.items[0].snippet.channelId)
+  const videocomment = await GetVideoComments(videoID);
+
   //working on videodeatils
   const srcRegex = /src=["'](.*?)["']/;
   const match = videodata.items[0].player.embedHtml.match(srcRegex);
   const srcAttribute = match && match[1];
 
-  console.log();
+  const channelTitle = channelData.items[0].snippet.title;
+  const channelAvatarUrl = channelData.items[0].snippet.thumbnails.high.url;
+  const subscriberCount = channelData.items[0].statistics.subscriberCount;
+  const viewCount = channelData.items[0].statistics.viewCount;
+
 
   return (
     <>
@@ -38,24 +47,22 @@ const YoutubeWatchVideoContainer = async ({ videoID }: any) => {
          </div>
         <div className="descriptioncontainer ">
           <div className="w-full p-2">
-          <h1 className="font-bold text-lg"> </h1>
+          <h1 className="font-bold text-lg"> {videodetails.items[0].snippet.title}</h1>
           </div>
         <div className="channelusercontainer w-full flex p-2 mb-3 items-center">
         <div className="leftcontainer w-full flex gap-2">
           <div className="imagecontainer w-11 h-11">
             <Image
               className="rounded-full"
-              src={
-                "https://yt3.ggpht.com/ytc/AGIKgqO8AFbjopb8KHLz-Lyudna1ZkntXwHsbNPA5W5-=s68-c-k-c0x00ffffff-no-rj"
-              }
+              src={`${channelAvatarUrl}`}
               width={50}
               height={40}
               alt="avatar"
             />
           </div>
           <div className="namecontainer px-2">
-            <p className="text-lg boldfontstyle"></p>
-            <p className="text-xs opacity-50 subscribers">121 subscriber</p>
+            <p className="text-sm boldfontstyle">{channelTitle}</p>
+            <p className="text-xs opacity-50 subscribers">{subscriberCount} subscriber</p>
           </div>
           <div className="subscribecontainer flex justify-center items-center rounded-full w-11  text-white text-sm border border-white border-opacity-30 bg-white bg-opacity-10 ">
             <AiOutlinePlus className={"text-2xl cursor-pointer"} />
@@ -80,7 +87,7 @@ const YoutubeWatchVideoContainer = async ({ videoID }: any) => {
           </div>
         </div>
       </div>
-          <Description />
+          <Description text = {videodetails.items[0].snippet.description} viewCount = {viewCount} comments={videocomment} />
         </div>
       </div>
     </>

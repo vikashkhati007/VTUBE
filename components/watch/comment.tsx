@@ -1,7 +1,16 @@
 import Image from "next/image";
 import UserComments from "./usercomment";
+import { useSession } from "next-auth/react";
 
-const CommentBox = () => {
+
+const CommentBox = ({commentdata}:any) => {
+  const { data: session, status } = useSession();
+  // 
+  // authorProfileImageUrl
+  // publishedAt
+  
+  console.log(commentdata.items[1].snippet.topLevelComment.snippet);
+
   return (
     <div className="w-full flex flex-col gap-2 mt-4 p-2">
       <h1 className="text-md"> 1900,2132 Comments</h1>
@@ -9,9 +18,7 @@ const CommentBox = () => {
       <div className="userprofile flex justify-around items-center gap-5 w-full ">
         <Image
         className="rounded-full"
-          src={
-            "https://yt3.ggpht.com/6KKf0h0XDFBxQcOb_3LcIPVSMOu5QxSMODbLVOZC7jHYs-jztNe_uBzf1ewCZvyMI53Oi7no=s88-c-k-c0x00ffffff-no-rj"
-          }
+          src={session?.user?.image || ""}
           width={40}
           height={40}
           alt="profile"
@@ -20,9 +27,10 @@ const CommentBox = () => {
         <button className=" bg-white p-2 rounded-md text-black font-semibold">Submit</button>
       </div>
       <div className="usercommnets">
-        <UserComments/>
-        <UserComments/>
-        <UserComments/>
+        {commentdata.items.map((d:any)=>{
+          return(
+        <UserComments avatar={d.snippet.topLevelComment.snippet.authorProfileImageUrl} username={d.snippet.topLevelComment.snippet.authorDisplayName} usercomment ={d.snippet.topLevelComment.snippet.textOriginal}/>
+        )})}
       </div>
     </div>
   );

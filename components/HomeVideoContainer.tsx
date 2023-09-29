@@ -8,11 +8,7 @@ const HomeVideoContainer = async () => {
   return (
     <div className="videocontainer flex flex-wrap items-center justify-around text-white border-b-2 border-white border-opacity-20 ">
       {youtubehomedata.items.map(async (d: any, index: any) => {
-        const channelIds = youtubehomedata.items.map(
-          (d: any) => d.snippet.channelId
-        );
 
-          console.log();
           // Safely parse the views count
           const views = parseInt(String(d.snippet.categoryId || "0"), 10);
 
