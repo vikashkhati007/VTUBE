@@ -1,8 +1,7 @@
-"use client";
 import Video from "./Video";
 import Link from "next/link";
 import youtube from "../youtubedata/gethomedata";
-import getUserProfileData from "../youtubedata/userprofiledata";
+
 const HomeVideoContainer = async () => {
   const youtubehomedata = await youtube();
 
@@ -12,8 +11,6 @@ const HomeVideoContainer = async () => {
         const channelIds = youtubehomedata.items.map(
           (d: any) => d.snippet.channelId
         );
-        const userdata = await getUserProfileData(channelIds);
-        userdata?.map((u:any) => {
 
           console.log();
           // Safely parse the views count
@@ -38,15 +35,14 @@ const HomeVideoContainer = async () => {
                 <Video
                   thumbnail={`${d.snippet.thumbnails.standard.url}`}
                   videotitle={`${d.snippet.title.slice(0, 29) + "..."}`}
-                  channelavtar={`${""}`}
-                  channelname={`${u.items[0].snippet.title}`}
+                  channelavtar={`${"https://yt3.ggpht.com/jecW6BR1WjvoRfIkU4ECkz7u9TsW_VzSrsFeVNh1AmvN8quPNTHpYXYtLyMF15imQztsRuQEFUk=s68-c-k-c0x00ffffff-no-rj"}`}
+                  channelname={`${"JamesBond"}`}
                   videoviews={formattedViews || ""} // Use the formatted views prop
                   videouploaddate={`${d.snippet.publishedAt}`}
                 />
               </Link>
             </>
           );
-        });
       })}
     </div>
   );
