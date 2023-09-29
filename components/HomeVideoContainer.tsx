@@ -8,10 +8,9 @@ const HomeVideoContainer = async () => {
   return (
     <div className="videocontainer flex flex-wrap items-center justify-around text-white border-b-2 border-white border-opacity-20 ">
       {youtubehomedata.items.map(async (d: any, index: any) => {
-
           // Safely parse the views count
           const views = parseInt(String(d.snippet.categoryId || "0"), 10);
-
+          console.log();
           // Format the videoviews prop with abbreviations
           let formattedViews;
 
@@ -31,8 +30,7 @@ const HomeVideoContainer = async () => {
                 <Video
                   thumbnail={`${d.snippet.thumbnails.standard.url}`}
                   videotitle={`${d.snippet.title.slice(0, 29) + "..."}`}
-                  channelavtar={`${"https://yt3.ggpht.com/jecW6BR1WjvoRfIkU4ECkz7u9TsW_VzSrsFeVNh1AmvN8quPNTHpYXYtLyMF15imQztsRuQEFUk=s68-c-k-c0x00ffffff-no-rj"}`}
-                  channelname={`${"JamesBond"}`}
+                  channelID={d.snippet.channelId}
                   videoviews={formattedViews || ""} // Use the formatted views prop
                   videouploaddate={`${d.snippet.publishedAt}`}
                 />

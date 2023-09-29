@@ -1,23 +1,15 @@
 import Image from "next/image";
 import VerifiedIcon from "./navcomponents/svg/verified";
 
-interface PropsType {
-  thumbnail: string; // Note the lowercase 'string' type
-  channelname: string; // Note the lowercase 'string' type
-  channelavtar: string; // Note the lowercase 'string' type
-  videotitle: string; // Note the lowercase 'string' type
-  videoviews: any; // Note the lowercase 'string' type
-  videouploaddate: string; // Note the lowercase 'string' type
-}
-
-const Video = ({
+const Video = async ({
   thumbnail,
-  channelname,
-  channelavtar,
+  channelID,
   videotitle,
   videoviews,
   videouploaddate,
-}: PropsType) => {
+}: any)  => {
+  console.log(channelID);
+  // const data = await GetChannelTest(channelID);
   return (
     <div className="videocontainer w-[380px] flex flex-col justify-center items-center my-4 gap-2 cursor-pointer">
       <Image
@@ -31,7 +23,7 @@ const Video = ({
         <div className="imagecontainer w-14 flex justify-center items-start">
           <Image
             className="rounded-full"
-            src={channelavtar} // Remove template literals and interpolation
+            src={""} // Remove template literals and interpolation
             width={40}
             height={40}
             alt="avtar"
@@ -41,7 +33,7 @@ const Video = ({
           <p className="text-[14.2px] text-left ">{videotitle}</p>
           <div className="channelinformation text-white text-opacity-70 flex flex-col">
             <div className="channelnamebadge flex space-x-1">
-              <h4 className="text-xs cursor-pointer text-left">{channelname} </h4>
+              <h4 className="text-xs cursor-pointer text-left">{""} </h4>
               <p className="w-[14px] h-[14px]">
               <VerifiedIcon />
               </p>

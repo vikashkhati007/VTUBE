@@ -10,7 +10,7 @@ const VideoResult = async ({
   channelID,
 }: any) => {
   const channeldetails = await GetChannelDetails(channelID);
-  console.log(channeldetails);
+  
   return (
     <>
       <div className="flex w-full justify-center rounded-md gap-3 cursor-pointer text-white ">
