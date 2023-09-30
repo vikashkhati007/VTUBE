@@ -1,9 +1,9 @@
 import Image from "next/image";
 
-const UserComments = ({avatar,username, uploaddate, usercomment}: any) => {
+const UserComments = ({ avatar, username, uploaddate, usercomment }: any) => {
   return (
     <>
-      <div className=" flex justify-start gap-3 my-5 border border-white border-opacity-20 rounded-md p-2">
+      <div className="flex justify-start gap-3 my-5 border border-white border-opacity-20 rounded-md p-2 overflow-x-hidden">
         <div className="image">
           <Image
             className="rounded-full"
@@ -18,9 +18,9 @@ const UserComments = ({avatar,username, uploaddate, usercomment}: any) => {
             <p className="font-semibold">{username}</p>
             <span className="opacity-70 text-xs">{uploaddate}</span>
           </div>
-          <h3>
-           {usercomment}
-           </h3>
+          <h3 className="break-words">
+            {usercomment}
+          </h3>
         </div>
       </div>
     </>

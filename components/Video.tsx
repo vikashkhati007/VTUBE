@@ -3,11 +3,11 @@ import VerifiedIcon from "./navcomponents/svg/verified";
 
 const Video = async ({
   thumbnail,
-  channelID,
   videotitle,
   videoviews,
   videouploaddate,
-  channelname
+  channelname,
+  channelavatar
 }: any)  => {
   // const data = await GetChannelTest(channelID);
   return (
@@ -23,7 +23,7 @@ const Video = async ({
         <div className="imagecontainer w-14 flex justify-center items-start">
           <Image
             className="rounded-full"
-            src={""} // Remove template literals and interpolation
+            src={channelavatar} // Remove template literals and interpolation
             width={40}
             height={40}
             alt="avtar"

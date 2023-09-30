@@ -3,18 +3,19 @@ import VideoResult from "./ResultVideo";
 import Link from "next/link";
 const SearchVideoContainer = async (query:any) => {
   const querydata = await GetQueryResults(query);
+  console.log(querydata);
   return (
     <>
       <div className="searchvidecontainer flex flex-col gap-5">
         {querydata.map((d: any) => {
           return (
-            <Link href={`/watch/${d.id.videoId}`}>
+            <Link href={`/watch/${d.id}`}>
               <VideoResult
-                thumbnail={d.snippet.thumbnails.maxres.url?d.snippet.thumbnails.maxres.url:d.snippet.thumbnails.high.url}
+                thumbnail={d.snippet.thumbnails.url}
                 title={d.snippet.title}
                 channelname={d.snippet.channelTitle}
                 description={d.snippet.description.slice(0,100)}
-                viewcount={"0"}
+                viewcount={d.statistics.viewCount}
                 channelID={d.snippet.channelId}
               />
             </Link>
