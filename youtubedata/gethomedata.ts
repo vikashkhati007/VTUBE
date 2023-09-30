@@ -1,4 +1,3 @@
-const API_KEY = process.env.API_KEY;
 const fetchMostRecentVideos = async () => {
   try {
     // Calculate a timestamp for a reasonable time frame (e.g., 7 days ago)
@@ -7,8 +6,9 @@ const fetchMostRecentVideos = async () => {
 
     // Step 1: Fetch the most recent videos
     const videoResponse = await fetch(
-      `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&part=snippet&type=video&order=date&maxResults=9&publishedAfter=${oneWeekAgo.toISOString()}`
+      `https://www.googleapis.com/youtube/v3/search?key=${process.env.API_KEY}&part=snippet&type=video&order=date&maxResults=9&publishedAfter=${oneWeekAgo.toISOString()}`
     );
+
 
     if (!videoResponse.ok) {
       throw new Error("Network response was not ok");
@@ -21,7 +21,7 @@ const fetchMostRecentVideos = async () => {
     const videoIds = videoData.items.map((item: any) => item.id.videoId);
     const videosPromises = videoIds.map(async (videoId: string) => {
       const videoDetailResponse = await fetch(
-        `https://www.googleapis.com/youtube/v3/videos?key=${API_KEY}&part=snippet,statistics&id=${videoId}`
+        `https://www.googleapis.com/youtube/v3/videos?key=${process.env.API_KEY}&part=snippet,statistics&id=${videoId}`
       );
       if (!videoDetailResponse.ok) {
         throw new Error("Error fetching video details");
@@ -37,7 +37,7 @@ const fetchMostRecentVideos = async () => {
 
       // Step 2: Fetch channel details
       const channelDetailResponse = await fetch(
-        `https://www.googleapis.com/youtube/v3/channels?key=${API_KEY}&part=snippet&id=${snippet.channelId}`
+        `https://www.googleapis.com/youtube/v3/channels?key=${process.env.API_KEY}&part=snippet&id=${snippet.channelId}`
       );
       if (!channelDetailResponse.ok) {
         throw new Error("Error fetching channel details");
