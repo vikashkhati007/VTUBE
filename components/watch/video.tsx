@@ -12,21 +12,34 @@ import GetChannelDetails from "@/youtubedata/getchanneldetails";
 import GetVideoComments from "@/youtubedata/getvideocomments";
 
 const YoutubeWatchVideoContainer = async ({ videoID }: any) => {
-  const videodata = await GetVideoURL(videoID);
-  const videodetails = await GetVideoDetails(videoID);
-  const channelData = await GetChannelDetails(
-    videodetails.items[0].snippet.channelId
-  );
-  const videocomment = await GetVideoComments(videoID);
+  let videodata, videodetails, channelData, videocomment;
 
-  function numberToShortString(number: number): string {
-    const suffixes: string[] = ["", "K", "M", "B", "T"];
+  try {
+    videodata = await GetVideoURL(videoID);
+    videodetails = await GetVideoDetails(videoID);
+    channelData = await GetChannelDetails(
+      videodetails?.items?.[0]?.snippet?.channelId || ""
+    );
+    videocomment = await GetVideoComments(videoID);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    // Handle the error as needed (e.g., show an error message to the user)
+    return null; // or any other appropriate action
+  }
+  function numberToShortString(number:any) {
+    if (typeof number !== 'number') {
+      return 'N/A'; // or any other appropriate fallback value
+    }
   
-    const suffixNum: number = Math.floor(("" + number).length / 3);
-    let shortValue: number | string = parseFloat((suffixNum !== 0 ? (number / Math.pow(1000, suffixNum)) : number).toPrecision(2));
+    const suffixes = ["", "K", "M", "B", "T"];
+    const suffixNum = Math.floor(("" + number).length / 3);
+  
+    let shortValue: any = parseFloat((suffixNum !== 0 ? (number / Math.pow(1000, suffixNum)) : number).toPrecision(2));
+  
     if (typeof shortValue === 'number' && shortValue % 1 !== 0) {
       shortValue = shortValue.toFixed(1);
     }
+  
     return shortValue + suffixes[suffixNum];
   }
   

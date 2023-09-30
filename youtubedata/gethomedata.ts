@@ -9,7 +9,6 @@ const fetchMostRecentVideos = async () => {
       `https://www.googleapis.com/youtube/v3/search?key=${process.env.API_KEY}&part=snippet&type=video&order=date&maxResults=9&publishedAfter=${oneWeekAgo.toISOString()}`
     );
 
-
     if (!videoResponse.ok) {
       throw new Error("Network response was not ok");
     }

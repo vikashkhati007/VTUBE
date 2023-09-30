@@ -1,11 +1,20 @@
-import Navbar from "@/components/navbar"
-
-const page = () => {
+import HomeVideoContainer from "@/components/HomeVideoContainer";
+import ClientNavbar from "@/components/navcomponents/clientnavbar"
+import NavbarItems from "@/components/navcomponents/navbaritems";
+const Navbar = () => {
   return (
     <div>
-      <Navbar/>
+      <div className="container flex flex-row w-full">
+        <NavbarItems />
+        <div className="container w-full h-screen ">
+          <ClientNavbar width={""} />
+          <div className="bodycontainer md:ml-[4rem] md:mt-[5rem] ">
+          <HomeVideoContainer />
+          </div>
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default Navbar;

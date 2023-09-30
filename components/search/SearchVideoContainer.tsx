@@ -3,7 +3,6 @@ import VideoResult from "./ResultVideo";
 import Link from "next/link";
 const SearchVideoContainer = async (query:any) => {
   const querydata = await GetQueryResults(query);
-  console.log(querydata);
   return (
     <>
       <div className="searchvidecontainer flex flex-col gap-5">
