@@ -26,23 +26,6 @@ const YoutubeWatchVideoContainer = async ({ videoID }: any) => {
     // Handle the error as needed (e.g., show an error message to the user)
     return null; // or any other appropriate action
   }
-  function numberToShortString(number:any) {
-    if (typeof number !== 'number') {
-      return 'N/A'; // or any other appropriate fallback value
-    }
-  
-    const suffixes = ["", "K", "M", "B", "T"];
-    const suffixNum = Math.floor(("" + number).length / 3);
-  
-    let shortValue: any = parseFloat((suffixNum !== 0 ? (number / Math.pow(1000, suffixNum)) : number).toPrecision(2));
-  
-    if (typeof shortValue === 'number' && shortValue % 1 !== 0) {
-      shortValue = shortValue.toFixed(1);
-    }
-  
-    return shortValue + suffixes[suffixNum];
-  }
-  
  
   
   //working on videodeatils
@@ -52,9 +35,9 @@ const YoutubeWatchVideoContainer = async ({ videoID }: any) => {
 
   const channelTitle = channelData.items[0].snippet.title;
   const channelAvatarUrl = channelData.items[0].snippet.thumbnails.high.url;
-  const subscriberCount = numberToShortString(channelData.items[0].statistics.subscriberCount);
-  const viewCount = numberToShortString(channelData.items[0].statistics.viewCount);
-  const likeCount = numberToShortString(videodetails.items[0].statistics.likeCount);
+  const subscriberCount = channelData.items[0].statistics.subscriberCount;
+  const viewCount = videodetails.items[0].statistics.viewCount;
+  const likeCount = videodetails.items[0].statistics.likeCount;
   const description = videodetails.items[0].snippet.description;
   const title = videodetails.items[0].snippet.title;
   

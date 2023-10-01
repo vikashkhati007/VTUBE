@@ -1,7 +1,6 @@
 import Input from "./input";
 import CreateICON from "./svg/create";
 import NotificationIcon from "./svg/notification";
-import HomeVideoContainer from "../HomeVideoContainer";
 import Link from "next/link";
 import Hover from "../groupcomponents/hover";
 import UserAuthenticate from "../userauthenticate/User";

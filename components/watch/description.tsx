@@ -1,10 +1,7 @@
 "use client"
-import React, { useState } from "react";
+import React from "react";
 import CommentBox from "./comment";
 const Description = ({text, viewCount, comments}:any) => {
-  const [showMore, setShowMore] = useState(false);
-
-
   return (
     <div>
       <div className={`topcontainer text-sm p-2 bg-white bg-opacity-10 rounded-md flex flex-col gap-2`}>

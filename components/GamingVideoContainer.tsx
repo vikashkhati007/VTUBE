@@ -1,13 +1,13 @@
+import getGamingVideos from "@/youtubedata/getgamingvideo";
 import Video from "./Video";
 import Link from "next/link";
-import fetchMostPopularVideos from "@/youtubedata/gethomedata";
-const HomeVideoContainer = async () => {
-  const youtubehomedata = await fetchMostPopularVideos(30);
+const GamingVideoContainer = async () => {
+  const youtubegamingvideos = await getGamingVideos(10);
  
   return (
     <>
     <div className="videocontainer flex flex-wrap items-center justify-around text-white border-b-2 border-white border-opacity-20 ">
-      {youtubehomedata.map(async (d: any, index: any) => {
+      {youtubegamingvideos.map(async (d: any, index: any) => {
           return (
             <>
               <Link key={d.id} href={`/watch/${d.id}`}>
@@ -29,4 +29,4 @@ const HomeVideoContainer = async () => {
   );
 };
 
-export default HomeVideoContainer;
+export default GamingVideoContainer;

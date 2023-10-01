@@ -1,4 +1,4 @@
-const fetchMostRecentVideos = async () => {
+const fetchMostRecentVideos = async (result:any) => {
   try {
     // Calculate a timestamp for a reasonable time frame (e.g., 7 days ago)
     const oneWeekAgo = new Date();
@@ -6,7 +6,7 @@ const fetchMostRecentVideos = async () => {
 
     // Step 1: Fetch the most recent videos
     const videoResponse = await fetch(
-      `https://www.googleapis.com/youtube/v3/search?key=${process.env.API_KEY}&part=snippet&type=video&order=date&maxResults=9&publishedAfter=${oneWeekAgo.toISOString()}`
+      `https://www.googleapis.com/youtube/v3/search?key=${process.env.API_KEY}&part=snippet&type=video&order=date&maxResults=${result}&publishedAfter=${oneWeekAgo.toISOString()}`
     );
 
     if (!videoResponse.ok) {
