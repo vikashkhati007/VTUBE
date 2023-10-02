@@ -3,15 +3,16 @@ import Link from "next/link";
 import fetchMostPopularVideos from "@/youtubedata/gethomedata";
 const HomeVideoContainer = async () => {
   const youtubehomedata = await fetchMostPopularVideos(30);
- 
+
   return (
     <>
-    <div className="videocontainer flex flex-wrap items-center justify-around text-white border-b-2 border-white border-opacity-20 ">
-      {youtubehomedata.map(async (d: any, index: any) => {
+      <div className="videocontainer flex flex-wrap items-center justify-around text-white border-b-2 border-white border-opacity-20 ">
+        {youtubehomedata.map(async (d: any, index: any) => {
           return (
             <>
-              <Link key={d.id} href={`/watch/${d.id}`}>
+              <Link href={`/watch/${d.id}`}>
                 <Video
+                  key={d.id}
                   thumbnail={d.snippet.thumbnails.url}
                   videotitle={`${d.snippet.title.slice(0, 29) + "..."}`}
                   channelavatar={d.snippet.channelAvatar}
@@ -22,9 +23,8 @@ const HomeVideoContainer = async () => {
               </Link>
             </>
           );
-      })}
-    </div>
-   
+        })}
+      </div>
     </>
   );
 };

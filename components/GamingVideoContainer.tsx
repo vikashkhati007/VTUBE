@@ -3,15 +3,16 @@ import Video from "./Video";
 import Link from "next/link";
 const GamingVideoContainer = async () => {
   const youtubegamingvideos = await getGamingVideos(10);
- 
+
   return (
     <>
-    <div className="videocontainer flex flex-wrap items-center justify-around text-white border-b-2 border-white border-opacity-20 ">
-      {youtubegamingvideos.map(async (d: any, index: any) => {
+      <div className="videocontainer flex flex-wrap items-center justify-around text-white border-b-2 border-white border-opacity-20 ">
+        {youtubegamingvideos.map(async (d: any, index: any) => {
           return (
             <>
-              <Link key={d.id} href={`/watch/${d.id}`}>
+              <Link href={`/watch/${d.id}`}>
                 <Video
+                  key={d.id}
                   thumbnail={d.snippet.thumbnails.url}
                   videotitle={`${d.snippet.title.slice(0, 29) + "..."}`}
                   channelavatar={d.snippet.channelAvatar}
@@ -22,9 +23,8 @@ const GamingVideoContainer = async () => {
               </Link>
             </>
           );
-      })}
-    </div>
-   
+        })}
+      </div>
     </>
   );
 };

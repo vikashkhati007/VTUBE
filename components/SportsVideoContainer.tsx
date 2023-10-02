@@ -5,12 +5,13 @@ const SportVideoContainer = async () => {
   const youtubesportsdata = await getSportsVideos(10);
   return (
     <>
-    <div className="videocontainer flex flex-wrap items-center justify-around text-white border-b-2 border-white border-opacity-20 ">
-      {youtubesportsdata.map(async (d: any, index: any) => {
+      <div className="videocontainer flex flex-wrap items-center justify-around text-white border-b-2 border-white border-opacity-20 ">
+        {youtubesportsdata.map(async (d: any, index: any) => {
           return (
             <>
-              <Link key={d.id} href={`/watch/${d.id}`}>
+              <Link href={`/watch/${d.id}`}>
                 <Video
+                  key={d.id}
                   thumbnail={d.snippet.thumbnails.url}
                   videotitle={`${d.snippet.title.slice(0, 29) + "..."}`}
                   channelavatar={d.snippet.channelAvatar}
@@ -21,9 +22,8 @@ const SportVideoContainer = async () => {
               </Link>
             </>
           );
-      })}
-    </div>
-   
+        })}
+      </div>
     </>
   );
 };

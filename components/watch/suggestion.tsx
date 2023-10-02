@@ -10,6 +10,7 @@ const SugestionVideoContainer = async () => {
           return (
             <Link href={`/watch/${d.id}`}>
               <SuggestVideo
+                key={d.id}
                 thumbnail={d.snippet.thumbnails.url}
                 channelname={d.snippet.channelName}
                 title={d.snippet.title}
