@@ -27,13 +27,13 @@ const VideoResult = async ({
           {channeldetails.items.map((d: any) => {
             return (
               <>
-                <div className="uppercontainer">
+                <div key={d.id} className="uppercontainer">
                   <h1 className="text-lg">{title}</h1>
                   <p className="text-xs opacity-50">
-                    {viewcount} views • 19 hour ago
+                    {viewcount} views • {d.snippet.publishedAt} ago
                   </p>
                 </div>
-                <div className="channelcontainer flex w-full cursor-pointer items-center gap-2">
+                <div key={d.id} className="channelcontainer flex w-full cursor-pointer items-center gap-2">
                   <Image
                     className="rounded-full"
                     src={d.snippet.thumbnails.high.url}

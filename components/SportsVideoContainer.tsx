@@ -2,7 +2,7 @@ import getSportsVideos from "@/youtubedata/getsportsvideo";
 import Video from "./Video";
 import Link from "next/link";
 const SportVideoContainer = async () => {
-  const youtubesportsdata = await getSportsVideos(10);
+  const youtubesportsdata = await getSportsVideos(20);
   return (
     <>
       <div className="videocontainer flex flex-wrap items-center justify-around text-white border-b-2 border-white border-opacity-20 ">

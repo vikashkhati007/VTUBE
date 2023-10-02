@@ -12,7 +12,7 @@ const page = ({params}:PropsType) => {
     <div className="container flex flex-row w-full">
     <NavbarItems />
     <div className="container w-full h-screen ">
-      <ClientNavbar width={""} />
+      <ClientNavbar/>
       <div className="bodycontainer md:ml-[4rem] md:mt-[5rem] ">
         <SearchVideoContainer query={params.search}/>
       </div>

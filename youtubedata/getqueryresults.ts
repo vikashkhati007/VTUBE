@@ -18,7 +18,7 @@ const GetQueryResults = async ({ query }: any) => {
   try {
     // Make the search request
     const searchResponse = await fetch(
-      `https://www.googleapis.com/youtube/v3/search?key=${process.env.API_KEY}&part=snippet&q=${query}`
+      `https://www.googleapis.com/youtube/v3/search?key=${process.env.API_KEY}&part=snippet&q=${query}&type=video`
     );
 
     if (!searchResponse.ok) {

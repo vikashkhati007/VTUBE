@@ -9,7 +9,7 @@ const page  = ({params}:any) => {
       </div>
       <div className="watchvideocontainer text-white w-full h-screen mt-20 flex justify-around items-start">
         <YoutubeWatchVideoContainer videoID={params.watch}/>
-        <SugestionVideoContainer/>
+        <SugestionVideoContainer />
     </div>
     </div>
   );

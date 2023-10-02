@@ -6,7 +6,7 @@ import Hover from "../groupcomponents/hover";
 import UserAuthenticate from "../userauthenticate/User";
 
 interface PropsType {
-  width: String;
+  width?: String;
 }
 
 const ClientNavbar = ({ width }: PropsType) => {
@@ -14,7 +14,7 @@ const ClientNavbar = ({ width }: PropsType) => {
   return (
     <>
       <div
-        className={`clientcontainer flex flex-row justify-around items-center h-16 bg-[#0F0F0F] border-b border-white border-opacity-10 w-full ${
+        className={`clientcontainer z-50 flex flex-row justify-around items-center h-16 bg-[#0F0F0F] border-b border-white border-opacity-10 w-full ${
           width ? width : "md:w-[95%]"
         } fixed top-0 right-0`}
       >

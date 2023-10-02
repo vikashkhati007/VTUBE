@@ -2,7 +2,7 @@ import getGamingVideos from "@/youtubedata/getgamingvideo";
 import Video from "./Video";
 import Link from "next/link";
 const GamingVideoContainer = async () => {
-  const youtubegamingvideos = await getGamingVideos(10);
+  const youtubegamingvideos = await getGamingVideos(20);
 
   return (
     <>

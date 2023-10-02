@@ -1,12 +1,12 @@
 import Link from "next/link";
 import SuggestVideo from "./suggestvideo";
-import fetchMostRecentVideos from "@/youtubedata/gethomedata";
+import GetSuggestVideos from "@/youtubedata/suggestvideo";
 const SugestionVideoContainer = async () => {
-  const youtubehomedata = await fetchMostRecentVideos(10);
+  const getsuggestedVideo = await GetSuggestVideos();
   return (
     <>
       <div className="flex flex-col gap-2">
-        {youtubehomedata.map((d: any) => {
+        {getsuggestedVideo.map((d: any) => {
           return (
             <Link href={`/watch/${d.id}`}>
               <SuggestVideo
