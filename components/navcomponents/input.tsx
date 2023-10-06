@@ -1,6 +1,5 @@
 "use client";
-
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { GoSearch } from "react-icons/go";
 import { MdKeyboardVoice } from "react-icons/md";
 import Hover from "../groupcomponents/hover";

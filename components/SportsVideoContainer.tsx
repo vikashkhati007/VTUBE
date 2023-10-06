@@ -1,3 +1,4 @@
+"use client"
 import getSportsVideos from "@/youtubedata/getsportsvideo";
 import Video from "./Video";
 import Link from "next/link";

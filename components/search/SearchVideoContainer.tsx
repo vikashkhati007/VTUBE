@@ -1,3 +1,4 @@
+"use client"
 import GetQueryResults from "@/youtubedata/getqueryresults";
 import VideoResult from "./ResultVideo";
 import Link from "next/link";

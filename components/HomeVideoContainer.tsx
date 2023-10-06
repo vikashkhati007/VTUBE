@@ -1,3 +1,5 @@
+"use client"
+
 import Video from "./Video";
 import Link from "next/link";
 import fetchMostPopularVideos from "@/youtubedata/gethomedata";
