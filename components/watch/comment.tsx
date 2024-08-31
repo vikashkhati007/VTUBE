@@ -33,14 +33,19 @@ const CommentBox = (commentdata: any) => {
         </button>
       </div>
       <div className="usercomments">
-        {commentdata.commentdata.items.map((d: any) => (
-          <UserComments
-            key={d.id}
-            avatar={d.snippet.topLevelComment.snippet.authorProfileImageUrl}
-            username={d.snippet.topLevelComment.snippet.authorDisplayName}
-            usercomment={d.snippet.topLevelComment.snippet.textOriginal}
-          />
-        ))}
+      {commentdata && commentdata.items && commentdata.items.length > 0 ? (
+  commentdata.commentdata.items.map((d: any) => (
+    <UserComments
+      key={d.id}
+      avatar={d.snippet.topLevelComment.snippet.authorProfileImageUrl}
+      username={d.snippet.topLevelComment.snippet.authorDisplayName}
+      usercomment={d.snippet.topLevelComment.snippet.textOriginal}
+    />
+  ))
+) : (
+  <p>Not found comments</p>
+)}
+
       </div>
     </div>
   );

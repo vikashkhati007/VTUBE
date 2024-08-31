@@ -1,4 +1,3 @@
-"use client"
 import React from "react";
 import CommentBox from "./comment";
 const Description = ({text, viewCount, comments}:any) => {
