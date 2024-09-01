@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 const getSportsVideos = async (result:any) => {
     try {
       // Calculate a timestamp for a reasonable time frame (e.g., 7 days ago)
@@ -61,9 +63,9 @@ const getSportsVideos = async (result:any) => {
       });
   
       const videos = await Promise.all(videosPromises);
+      fs.writeFileSync('videos.json', JSON.stringify(videos, null, 2));
   
       // Return the video data
-      return videos;
     } catch (error) {
       console.error("Error fetching most recent videos:", error);
       return [];

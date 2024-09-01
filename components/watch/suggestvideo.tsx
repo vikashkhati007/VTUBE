@@ -7,7 +7,34 @@ interface PropsType{
   viewscount: string,
   publisheddate: string
 }
+
+const timeAgo = (dateString: string) => {
+  const date = new Date(dateString);
+  const now = new Date();
+  const seconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+
+  let interval = Math.floor(seconds / 31536000);
+  if (interval >= 1) return interval === 1 ? `${interval} year ago` : `${interval} years ago`;
+
+  interval = Math.floor(seconds / 2592000);
+  if (interval >= 1) return interval === 1 ? `${interval} month ago` : `${interval} months ago`;
+
+  interval = Math.floor(seconds / 86400);
+  if (interval >= 1) return interval === 1 ? `${interval} day ago` : `${interval} days ago`;
+
+  interval = Math.floor(seconds / 3600);
+  if (interval >= 1) return interval === 1 ? `${interval} hour ago` : `${interval} hours ago`;
+
+  interval = Math.floor(seconds / 60);
+  if (interval >= 1) return interval === 1 ? `${interval} minute ago` : `${interval} minutes ago`;
+
+  return "Just now";
+};
+
 const SuggestVideo = ({thumbnail, title, channelname, viewscount, publisheddate}:PropsType) => {
+ 
+  const formattedDate = timeAgo(publisheddate);
+  
   return (
     <div>
       <div className="videocontainer flex gap-2 justify-start p-2 border border-white border-opacity-20 rounded-lg cursor-pointer">
@@ -26,7 +53,7 @@ const SuggestVideo = ({thumbnail, title, channelname, viewscount, publisheddate}
           <div className="text-sm text-opacity-50 text-white">
             <p>{viewscount}</p>
             <span></span>
-            <p>{publisheddate}</p>
+            <p>{formattedDate}</p>
           </div>
         </div>
       </div>

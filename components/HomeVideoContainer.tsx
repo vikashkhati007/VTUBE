@@ -1,13 +1,12 @@
 "use client"
-
 import Video from "./Video";
 import Link from "next/link";
 import fetchMostPopularVideos from "@/youtubedata/gethomedata";
 const HomeVideoContainer = async () => {
-  const youtubehomedata = await fetchMostPopularVideos(30);
+  const youtubehomedata = await fetchMostPopularVideos(9);
   return (
     <>
-      <div className="videocontainer flex flex-wrap items-center justify-around text-white border-b-2 border-white border-opacity-20 ">
+      <div className="videocontainer flex flex-wrap items-center justify-around text-white border-b-2 border-white border-opacity-20 gap-3">
         {youtubehomedata.map(async (d: any, index: any) => {
           return (
             <>
