@@ -1,17 +1,15 @@
 "use client";
-
+import type { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
-import React from "react";
-import NextNProgress from 'nextjs-progressbar';
 
-type Props = {
+// THIS WILL WORK
+
+export default function Providers({
+  session,
+  children,
+}: {
+  session: Session | null;
   children: React.ReactNode;
-};
-
-export default function AuthProvider({ children }: Props) {
-  return(
-<SessionProvider>
-    <NextNProgress />
-    {children}</SessionProvider>
-  ) ;
+}) {
+  return <SessionProvider session={session}>{children}</SessionProvider>;
 }

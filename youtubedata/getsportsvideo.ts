@@ -1,4 +1,3 @@
-const fs = require('fs');
 
 const getSportsVideos = async (result:any) => {
     try {
@@ -63,7 +62,7 @@ const getSportsVideos = async (result:any) => {
       });
   
       const videos = await Promise.all(videosPromises);
-      fs.writeFileSync('videos.json', JSON.stringify(videos, null, 2));
+      return videos;
   
       // Return the video data
     } catch (error) {

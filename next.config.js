@@ -4,7 +4,7 @@ const nextConfig = {
         domains: ["i.ytimg.com","yt3.ggpht.com","lh3.googleusercontent.com"]
     },
     logging:{
-        fetches:{
+        fetches: {
             fullUrl: true
         }
     }
