@@ -10,7 +10,6 @@ interface PropsType {
 }
 
 const ClientNavbar = ({ width }: PropsType) => {
-
   return (
     <>
       <div
